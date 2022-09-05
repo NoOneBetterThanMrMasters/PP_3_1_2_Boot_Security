@@ -21,6 +21,16 @@ public class User implements UserDetails{
     @Column(name = "password")
     private String password;
 
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "age")
+    private String age;
+
+    @Column(name = "lastname")
+    private String lastname;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "users_roles",
@@ -31,6 +41,15 @@ public class User implements UserDetails{
 
     public User(){
 
+    }
+
+    public User(int id, String username, String email, String age, String lastname, String password) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.age = age;
+        this.lastname = lastname;
+        this.password = password;
     }
 
     public User(String username) {
@@ -61,6 +80,30 @@ public class User implements UserDetails{
     @Override
     public boolean isAccountNonLocked() {
         return true;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     @Override
@@ -107,7 +150,8 @@ public class User implements UserDetails{
 
         if (id != user.id) return false;
         if (!username.equals(user.username)) return false;
-        return password.equals(user.password);
+        if (!password.equals(user.password)) return false;
+        return email.equals(user.email);
     }
 
     @Override
@@ -115,6 +159,7 @@ public class User implements UserDetails{
         int result = id;
         result = 31 * result + username.hashCode();
         result = 31 * result + password.hashCode();
+        result = 31 * result + email.hashCode();
         return result;
     }
 }

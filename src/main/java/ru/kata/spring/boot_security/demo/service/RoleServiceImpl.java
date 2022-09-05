@@ -6,6 +6,7 @@ import ru.kata.spring.boot_security.demo.dao.UserDao;
 import ru.kata.spring.boot_security.demo.model.Role;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class RoleServiceImpl implements RoleService {
@@ -33,6 +34,7 @@ public class RoleServiceImpl implements RoleService {
     public void addRole(Role role) {
         roleDao.addRole(role);
     }
+
 
     public Set<Role> getRole(String[] roles){
         Set<Role> userRole = new HashSet<>();
