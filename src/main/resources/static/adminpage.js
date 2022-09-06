@@ -1,7 +1,7 @@
-const url = 'http://localhost:8080/api/restadmin/adminpage/'
-const update_url = 'http://localhost:8080/api/restadmin/adminpage/edit'
-const delete_url = 'http://localhost:8080/api/restadmin/adminpage/'
-const add_url = 'http://localhost:8080/api/restadmin/adminpage/new?listRoles'
+const url = 'http://localhost:8080/api/admin/adminpage/'
+const update_url = 'http://localhost:8080/api/admin/adminpage/edit'
+const delete_url = 'http://localhost:8080/api/admin/adminpage/'
+const add_url = 'http://localhost:8080/api/admin/adminpage/new?listRoles'
 
 const addUserForm = document.querySelector('#addUser')
 const editUserForm = document.querySelector('#modalEdit')
