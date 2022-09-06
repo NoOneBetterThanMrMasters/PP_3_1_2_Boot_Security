@@ -11,6 +11,7 @@ import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/admin")
 public class AdminRestController {
     private final UserService userService;
     private final UserServiceImpl userServiceImpl;
