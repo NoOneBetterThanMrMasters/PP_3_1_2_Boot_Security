@@ -33,9 +33,9 @@ public class AdminRestController {
 
 
     @PostMapping("/adminpage/new")
-    public List<User> addUser(@RequestBody User user) {
+    public ResponseEntity<?> addUser(@RequestBody User user) {
         userService.add(user);
-        return userService.getListUsers();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/adminpage/edit")
